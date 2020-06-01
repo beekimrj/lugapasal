@@ -1,2 +1,12 @@
-<h1>Dresses#show</h1>
-<p>Find me in app/views/dresses/show.html.erb</p>
+<div class="display-product">
+	<h3><%= @dress.name %></h3>
+	<p>
+		Size: <%= @dress.size %> <br/>
+		Color: <%= @dress.color %> <br/>
+		Price: Rs. <%= @dress.price %> <br/>
+		Description: <%= @dress.description %> <br/>
+		<%= link_to 'Back', dresses_path, class: "btn btn-primary" %>
+		<%= link_to "Edit", edit_dress_path(@dress), class: "btn btn-secondary" %>
+		<%= link_to "Delete", dress_path(@dress), method: :delete,data: {confirm: "Are you sure"}, class: "btn btn-danger" %>
+	</p>
+</div>

@@ -20,6 +20,10 @@
 		<%= f.text_area :description, cols: 20 %>
 	</div>
 	<div>
+		<%= f.label :dress_img %>
+		<%= f.file_field :dress_img %>
+	</div>
+	<div>
 		<%= f.submit "Submit", class: "btn btn-primary" %>
 		<%= link_to 'Back', :back, class: "btn btn-secondary" %>
 	</div>

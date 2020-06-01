@@ -3,7 +3,9 @@
 	<%@dresses.each do |dress| %>
 		<div class="product-item">
 			<div class="card" style="width: 18rem;">
-		  <img class="card-img-top"  alt="Card image cap">
+				<% if dress.dress_img.attached? %>
+		  <%= image_tag(dress.dress_img, class: "Card image cap") %>
+		  <% end %>
 		  <div class="card-body">
 		  <h5 class="card-title"><%= dress.name %></h5>
 		  <p class="card-text">

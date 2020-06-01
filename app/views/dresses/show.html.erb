@@ -1,5 +1,8 @@
 <div class="display-product">
 	<h3><%= @dress.name %></h3>
+	<% if @dress.dress_img.attached? %>
+<%= image_tag(@dress.dress_img) %>
+<%end %>
 	<p>
 		Size: <%= @dress.size %> <br/>
 		Color: <%= @dress.color %> <br/>

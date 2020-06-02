@@ -1,6 +1,7 @@
 class Dress < ApplicationRecord
 	has_one_attached :dress_img
 	validate :acceptable_image
+	validates :name,:price,:description,:size , presence: true
 
 	def acceptable_image
 		return unless dress_img.attached?

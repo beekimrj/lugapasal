@@ -12,7 +12,8 @@ class DressesController < ApplicationController
     if @dress.save
       redirect_to dress_path(@dress)
     else
-      render "new"
+      flash[:danger] = @dress.errors.full_messages.to_sentence
+      render :new
     end
   end
 
@@ -29,7 +30,8 @@ class DressesController < ApplicationController
     if @dress.update(dress_params)
       redirect_to @dress
     else
-      render "edit"
+      flash[:danger] = @dress.errors.full_messages.to_sentence
+      redirect_to :edit and return
     end
   end
 

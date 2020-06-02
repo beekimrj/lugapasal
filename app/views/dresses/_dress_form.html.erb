@@ -6,23 +6,23 @@
 	</div>
 	<div>
 		<%= f.label :color %>
-		<%= f.text_field :color %>
+		<%= f.text_field :color, required: true %>
 	</div>
 	<div>
 		<%= f.label :size %>
-		<%= f.text_field :size %>
+		<%= f.text_field :size , required: true%>
 	</div>
 	<div>
 		<%= f.label :price %>
-		<%= f.number_field :price, step: :any %>
+		<%= f.number_field :price, required: true, step: :any %>
 	</div>
 	<div>
 		<%= f.label :description %>
-		<%= f.text_area :description, cols: 20 %>
+		<%= f.text_area :description, required: true, cols: 20 %>
 	</div>
 	<div>
 		<%= f.label :dress_img %>
-		<%= f.file_field :dress_img %>
+		<%= f.file_field :dress_img, required: @dress.new_record?%>
 	</div>
 	<div>
 		<%= f.submit "Submit", class: "btn btn-primary" %>

@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   before_action :return_if_signed_in, only: [:create, :new]
 
   def new
+    if User.count > 0
+      flash[:danger] = "You can't Sign Up"
+      redirect_to login_path and return
+    end
     @user = User.new;
   end
 

@@ -4,6 +4,13 @@
 	</div>
 	<div class="menu">
 		<%= link_to("Add Cloth", new_dress_path) %>
+		<%if signed_in? %>
+		<%= link_to("Log Out", logout_path) %>	
+		<%= link_to("Settings", edit_user_path(current_user)) %>
+		<% else %>
+			<%= link_to("Login", login_path) %>
+			<%= link_to("Sign Up", signup_path) %>
+		<% end %>
 	</div>
 	<ul>
 		<li><%= link_to "Home",root_path %></li>

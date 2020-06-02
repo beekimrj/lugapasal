@@ -1,0 +1,38 @@
+<%= form_with model: @user do |f| %>
+	<div>
+		<%= f.label :username %>
+		<%= f.text_field :username, required: true, readonly: signed_in?  %>
+	</div>
+	 <% #if User.exists?(@user.id)
+	 		if signed_in?
+	  %>
+
+	<div>
+		<%= f.label :old_password %>
+  <%= password_field_tag :old_password, params[:old_password], placeholder: "Current password" %>
+	</div>
+	<% end %>
+	<div>
+		<%= f.label :password %>
+		<%= f.password_field :password, required: true %>
+	</div>
+	<div>
+		<%= f.label :password_confirmation %>
+		<%= f.password_field :password_confirmation, required: true %>
+	</div>
+	<div>
+		<%= f.label :full_name %>
+		<%= f.text_field :full_name, required: true %>
+	</div>
+	<div>
+		<%= f.submit "Submit" %>
+		<%= link_to 'Back', :back, class: "btn btn-secondary" %>
+	</div>
+<% end %>
+
+<% if signed_in? %>
+<h4> Delete Account </h4>
+<p>
+	Note: You can't recover once deleted.
+<%= link_to "Delete", user_path(@user), method: :delete,data: {confirm: "Are you sure"}, class: "btn btn-danger" %></p>
+<% end %>

@@ -1,12 +1,45 @@
 // Place all the styles related to the Dresses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
 .product-container{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
 }
 
+h2 {
+	color: #333;
+	text-align: center;
+}
+
 .product-item{
 	margin-bottom: 1rem;
 }
+
+.banner{
+	width: 90%;
+	height: 450px;
+	margin: 0 auto 5rem auto;
+	background: #71b1f1;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background-image: url(asset_path("banner.jpg"));
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  .banner-text{
+	text-align: left;
+	color: white;
+	h4{
+		font-size: 2rem;
+		font-weight: bold;
+		}
+	}
+}
+
+

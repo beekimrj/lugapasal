@@ -1,3 +1,4 @@
+<div class="container">
 <div class="display-product">
 	<h3><%= @dress.name %></h3>
 	<% if @dress.dress_img.attached? %>
@@ -9,7 +10,10 @@
 		Price: Rs. <%= @dress.price %> <br/>
 		Description: <%= @dress.description %> <br/>
 		<%= link_to 'Back', dresses_path, class: "btn btn-primary" %>
+		<% if signed_in? %>
 		<%= link_to "Edit", edit_dress_path(@dress), class: "btn btn-secondary" %>
 		<%= link_to "Delete", dress_path(@dress), method: :delete,data: {confirm: "Are you sure"}, class: "btn btn-danger" %>
+		<% end %>
 	</p>
+</div>
 </div>

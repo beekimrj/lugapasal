@@ -35,13 +35,19 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by(username: params[:user][:username].downcase)
     if @user && @user.authenticate(params[:old_password])
-      if @user.update(user_params)
-        flash[:success] = "Updated"
-        redirect_to root_path and return
+      if params[:user][:password] == ""
+        params[:user][:password] = params[:old_password]
+        params[:user][:password_confirmation] = params[:old_password]
       end
+      if @user.update(user_params)
+        flash[:success] = "Account Updated Successfully"
+        redirect_to root_path and return
+      else
+        flash[:danger] = @user.errors.full_messages.to_sentence
+      end
+    else
+        flash[:danger] ||= "Incorrect Old Password"
     end
-        # byebug
-        flash[:danger] = "Old password didn't match"
         redirect_to edit_user_path(@user)
   end
 

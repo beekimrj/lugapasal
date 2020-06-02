@@ -1,0 +1,6 @@
+<h3> Searched Items </h3>
+<div class="product-container">
+<% @searches.each do |search| %>
+	<%= render partial: 'dress_card', locals: {dress: search} %>
+	<% end %>
+</div>

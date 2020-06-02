@@ -1,21 +1,13 @@
-<h1> All Available Dresses </h1>
+<div class="banner">
+	<div class = "banner-text">
+		<h4> Life Is Beautiful </h4>
+		<p> Everything happens for good. <br/>
+				Life is Good </p>
+	</div>
+</div>
+<h2> <u>All Dresses </u></h2>
 <div class="product-container">
 	<%@dresses.each do |dress| %>
-		<div class="product-item">
-			<div class="card" style="width: 18rem;">
-				<% if dress.dress_img.attached? %>
-		  <%= image_tag(dress.dress_img, class: "Card image cap") %>
-		  <% end %>
-		  <div class="card-body">
-		  <h5 class="card-title"><%= dress.name %></h5>
-		  <p class="card-text">
-		  	size:<%= dress.size %><br/>
-		  	color: <%= dress.color %> 	
-		  </p>
-		  <%= link_to "See More", dress, class: "btn btn-primary" %>
-		  <%= link_to "Edit", edit_dress_path(dress), class: "btn btn-secondary" %>
-		  </div>
-			</div>
-		</div>
+		<%= render partial: 'dress_card', locals: {dress: dress} %>
 	<% end %>
 </div>

@@ -1,0 +1,19 @@
+<div class="product-item">
+			<div class="card" style="width: 18rem;">
+				<% if dress.dress_img.attached? %>
+		  <%= image_tag(dress.dress_img, class: "Card image cap") %>
+		  <% end %>
+		  <div class="card-body">
+		  <h5 class="card-title"><%= dress.name %></h5>
+		  <p class="card-text">
+		  	size:<%= dress.size %><br/>
+		  	color: <%= dress.color %><br/>
+		  	color: <%= dress.price %>	
+		  </p>
+		  <%= link_to "See More", dress, class: "btn btn-primary" %>
+		  <% if signed_in? %>
+		  <%= link_to "Edit", edit_dress_path(dress), class: "btn btn-secondary" %>
+		  <% end %>
+		  </div>
+			</div>
+</div>

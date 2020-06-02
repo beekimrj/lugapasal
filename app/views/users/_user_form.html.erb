@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_with model: @user do |f| %>
 	<div>
 		<%= f.label :username %>
@@ -6,7 +7,7 @@
 	 <% #if User.exists?(@user.id)
 	 		if signed_in?
 	  %>
-
+	 <p><i> Note: Enter old password to edit anything.</i></p>
 	<div>
 		<%= f.label :old_password %>
   <%= password_field_tag :old_password, params[:old_password], placeholder: "Current password" %>
@@ -14,11 +15,11 @@
 	<% end %>
 	<div>
 		<%= f.label :password %>
-		<%= f.password_field :password, required: true %>
+		<%= f.password_field :password%>
 	</div>
 	<div>
 		<%= f.label :password_confirmation %>
-		<%= f.password_field :password_confirmation, required: true %>
+		<%= f.password_field :password_confirmation %>
 	</div>
 	<div>
 		<%= f.label :full_name %>
@@ -31,8 +32,10 @@
 <% end %>
 
 <% if signed_in? %>
+<br/>
 <h4> Delete Account </h4>
 <p>
 	Note: You can't recover once deleted.
 <%= link_to "Delete", user_path(@user), method: :delete,data: {confirm: "Are you sure"}, class: "btn btn-danger" %></p>
 <% end %>
+</div>

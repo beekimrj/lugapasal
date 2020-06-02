@@ -33,6 +33,15 @@ class DressesController < ApplicationController
     end
   end
 
+  def search
+    @searched_item = params[:search]
+    @sort_by = params[:sort_by]
+    @order_by = @sort_by!="" ? params[:order] : ""
+    # byebug
+    @searches = Dress.where("name LIKE ?","%#{@searched_item}%").order("#{@sort_by} #{@order_by}")
+    
+  end
+
   def destroy
     @dress = Dress.find(params[:id])
     @dress.destroy

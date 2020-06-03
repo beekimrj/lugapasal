@@ -31,15 +31,17 @@ class DressesController < ApplicationController
 
   def update
     @dress = Dress.find(params[:id])
-    @dress.size = params[:size]
+    if !params[:size].nil?
+      @dress.size = params[:size]
+    end
     params[:dress][:color] = format_text(params[:dress][:color])
     params[:dress][:name] = format_text(params[:dress][:name])
     if @dress.update(dress_params)
-      redirect_to @dress
-    else
-      flash[:danger] = @dress.errors.full_messages.to_sentence
-      redirect_to :edit and return
+      redirect_to @dress and return
     end
+    flash[:danger] = @dress.errors.full_messages.to_sentence
+    render :edit
+  
   end
 
   def search
@@ -68,8 +70,10 @@ class DressesController < ApplicationController
     end
 
     def format_text(record)
+      if record != ""
       record = record.downcase
       record[0] = record[0].capitalize
-      return record
+      end
+      record
     end
 end

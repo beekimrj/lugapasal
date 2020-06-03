@@ -1,8 +1,8 @@
 <div class="container">
-<%= form_with model: @dress do |f| %>
+<%= form_with model: @dress, local: true do |f| %>
 	<div>
 		<%= f.label :name %>
-		<%= f.text_field :name, required: true %>
+		<%= f.text_field :name,required: true %>
 	</div>
 	<div>
 		<%= f.label :color %>

@@ -13,15 +13,9 @@
     <header>
       <%= render partial: 'layouts/navbar' %>
     </header>
-        <%= form_with url: search_path, method: :get, local: true do |f| %>
-        <%= f.label :search %>
-        <%= f.text_field :search , value: @searched_item%>
-        <%= f.select :sort_by, options_for_select([["Sort_by",""],["Name","name"],["Price","price"]], @sort_by) %> 
-        in  <%= f.select :order, options_for_select([["",""],["Low_to_high","asc"],["High_to_Low","desc"]],@order_by) %>
-        <%= f.submit "Search" %>
-      <% end %>
-    <div class="fluid-container">
 
+    <div class="fluid-container">
+      <%= render partial: 'layouts/search_form' %>
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>

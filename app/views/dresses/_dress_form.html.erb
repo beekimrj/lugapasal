@@ -8,9 +8,15 @@
 		<%= f.label :color %>
 		<%= f.text_field :color, required: true %>
 	</div>
-	<div>
-		<%= f.label :size %>
-		<%= f.text_field :size , required: true%>
+	<div>Available Sizes:
+		<%= label_tag(:S) %>
+		<%= check_box_tag "size[]", :S, @dress.new_record? ? false : @dress.size.include?("S")%>
+		<%= label_tag(:M) %>
+		<%= check_box_tag "size[]", :M,@dress.new_record? ? false : @dress.size.include?("M") %>
+		<%= label_tag(:L) %>
+		<%= check_box_tag "size[]", :L,@dress.new_record? ? false : @dress.size.include?("L") %>
+		<%= label_tag(:XL) %>
+		<%= check_box_tag "size[]", :XL,@dress.new_record? ? false : @dress.size.include?("XL") %>
 	</div>
 	<div>
 		<%= f.label :price %>

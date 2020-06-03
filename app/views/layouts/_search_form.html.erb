@@ -1,0 +1,12 @@
+<%= form_with url: search_path, method: :get, local: true do |f| %>
+    <%= f.label :search %>
+    <%= f.text_field :search , value: @searched_item%>
+    <%= f.select :sort_by, options_for_select([["Sort_by",""],["Name","name"],["Price","price"]], @sort_by) %> 
+    in  <%= f.select :order, options_for_select([["",""],["Low_to_high","asc"],["High_to_Low","desc"]],@order_by) %>
+    Filter by:
+     <%= f.select :dress_size, options_for_select([["Size",""],["S","S"],["M","M"],["L","L"],["XL","XL"]], @dress_size) %>
+     <% colors = list_all_colors.map{|color| ([color,color])} 
+     colors.unshift(["Color",""])%>
+    <%= f.select :dress_color, options_for_select(colors.map{|color| color}, @dress_color) %>
+    <%= f.submit "Search" %>
+<% end %>

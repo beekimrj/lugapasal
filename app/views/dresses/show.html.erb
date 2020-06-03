@@ -5,7 +5,7 @@
 <%= image_tag(@dress.dress_img) %>
 <%end %>
 	<p>
-		Size: <%= @dress.size %> <br/>
+		Size: <%= @dress.size[1..-2] %> <br/>
 		Color: <%= @dress.color %> <br/>
 		Price: Rs. <%= @dress.price %> <br/>
 		Description: <%= @dress.description %> <br/>

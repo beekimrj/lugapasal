@@ -49,13 +49,20 @@ class DressesController < ApplicationController
     @sort_by = params[:sort_by]
     @dress_size = params[:dress_size]
     @dress_color = params[:dress_color]
-    @order_by = @sort_by!="" ? params[:order] : ""
+    if @sort_by =="" || @sort_by.nil?
+      @order_by =""
+    else
+      @order_by = params[:order]
+    end
     @searches = Dress.where("name LIKE ?","%#{@searched_item}%").order("#{@sort_by} #{@order_by}")
     # search.size[1..-2].split('"').select{|b| b!="" && b!= ","} reverses string into array, useful when array is converted into string
-    @searches = @searches.select{ |search| search.size[1..-2].split('"').select{|b| b!="" && b!= ","}.include?(@dress_size)}
-    if @dress_color != ""
+    if @dress_size != "" && !@dress_size.nil?
+      @searches = @searches.select{ |search| search.size[1..-2].split('"').select{|b| b!="" && b!= ","}.include?(@dress_size)}
+    end
+    if @dress_color != "" && !@dress_color.nil?
       @searches = @searches.select{ |search| search[:color] == @dress_color}
     end
+    @searches
   end
 
   def destroy

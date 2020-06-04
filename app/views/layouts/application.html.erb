@@ -7,15 +7,15 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
   </head>
 
   <body>
     <header>
       <%= render partial: 'layouts/navbar' %>
     </header>
-
-    <div class="fluid-container">
-      <%= render partial: 'layouts/search_form' %>
+    <div class="content">
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>

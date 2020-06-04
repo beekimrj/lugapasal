@@ -1,19 +1,22 @@
-<div class="product-item">
-			<div class="card" style="width: 18rem;">
-				<% if dress.dress_img.attached? %>
-		  <%= image_tag(dress.dress_img, class: "Card image cap") %>
-		  <% end %>
-		  <div class="card-body">
-		  <h5 class="card-title"><%= dress.name %></h5>
-		  <p class="card-text">
-		  	size:<%= dress.size[1..-2] %><br/>
-		  	color: <%= dress.color %><br/>
-		  	color: <%= dress.price %>	
-		  </p>
-		  <%= link_to "See More", dress, class: "btn btn-primary" %>
-		  <% if signed_in? %>
-		  <%= link_to "Edit", edit_dress_path(dress), class: "btn btn-secondary" %>
-		  <% end %>
-		  </div>
-			</div>
+<div class="card-container">
+	<div class="card-img">
+		<% if dress.dress_img.attached? %>
+  <%= image_tag(dress.dress_img) %>
+  <% end %>
+	</div>
+	<div class="card-body">
+		<div class="card-title">
+			<h1><%= dress.name %></h1>
+		</div>
+		<div class="card-price">
+			<p>Rs. <%= dress.price %></p>
+		</div>
+	</div>
+	<div class="card-footer">
+		<%= button_to "See More", dress,method: :get, class: "see-more-btn"%>
+		<% if signed_in? %>
+		<%= button_to "Edit",edit_dress_path(dress),method: :get, class:"edit-btn" %> 
+		<%= button_to "Delete", dress_path(dress), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-btn" %>
+  <% end %>
+	</div>
 </div>

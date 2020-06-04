@@ -1,38 +1,51 @@
-<div class="container">
-<%= form_with model: @dress, local: true do |f| %>
-	<div>
-		<%= f.label :name %>
-		<%= f.text_field :name,required: true %>
-	</div>
-	<div>
-		<%= f.label :color %>
-		<%= f.text_field :color, required: true %>
-	</div>
-	<div>Available Sizes:
-		<%= label_tag(:S) %>
-		<%= check_box_tag "size[]", :S, @dress.new_record? ? false : @dress.size.include?("S")%>
-		<%= label_tag(:M) %>
-		<%= check_box_tag "size[]", :M,@dress.new_record? ? false : @dress.size.include?("M") %>
-		<%= label_tag(:L) %>
-		<%= check_box_tag "size[]", :L,@dress.new_record? ? false : @dress.size.include?("L") %>
-		<%= label_tag(:XL) %>
-		<%= check_box_tag "size[]", :XL,@dress.new_record? ? false : @dress.size.include?("XL") %>
-	</div>
-	<div>
-		<%= f.label :price %>
-		<%= f.number_field :price, required: true, step: :any %>
-	</div>
-	<div>
-		<%= f.label :description %>
-		<%= f.text_area :description, required: true, cols: 20 %>
-	</div>
-	<div>
-		<%= f.label :dress_img %>
-		<%= f.file_field :dress_img, required: @dress.new_record?%>
-	</div>
-	<div>
-		<%= f.submit "Submit", class: "btn btn-primary" %>
-		<%= link_to 'Back', :back, class: "btn btn-secondary" %>
+<%= form_with model: @dress, local: true, class: "dress-form" do |f| %>
+	<div class="row">
+		<div class="col-25">
+			<%= f.label :name %>
+		</div>
+		<div class="col-75">
+			<%= f.text_field :name,required: true %>
+		</div>
+		<div class="col-25">
+			<%= f.label :color %>
+		</div>
+		<div class="col-75">
+			<%= f.text_field :color, required: true %>
+		</div>
+		<div class="col-25">
+					<%= f.label :price %>
+		</div>
+		<div class="col-75">
+			<%= f.number_field :price, required: true, step: :any %>
+		</div>
+		<div class="col-25">
+			<label for="size">Available Sizes:</label>
+		</div>
+		<div class="col-75">
+			<%= label_tag(:S) %>
+			<%= check_box_tag "size[]", :S, @dress.new_record? ? false : @dress.size.include?("S")%>
+			<%= label_tag(:M) %>
+			<%= check_box_tag "size[]", :M,@dress.new_record? ? false : @dress.size.include?("M") %>
+			<%= label_tag(:L) %>
+			<%= check_box_tag "size[]", :L,@dress.new_record? ? false : @dress.size.include?("L") %>
+			<%= label_tag(:XL) %>
+			<%= check_box_tag "size[]", :XL,@dress.new_record? ? false : @dress.size.include?("XL") %>
+		</div>
+		<div class="col-25">
+			<%= f.label :description %>
+		</div>
+		<div class="col-75">
+			<%= f.text_area :description, required: true, class: "product-description"%>
+		</div>
+		<div class="col-25">
+			<%= f.label :dress_img %>
+		</div>
+		<div class="col-75">
+			<%= f.file_field :dress_img, required: @dress.new_record?%>
+		</div>
+		<div class="row">
+			<%= f.submit "Submit", class: "submit-btn" %>
+			<%= button_to 'Back', :back, class: "back-btn" %>
+		</div>
 	</div>
 <% end %>
-</div>

@@ -1,19 +1,27 @@
-<div class="container">
-<div class="display-product">
-	<h3><%= @dress.name %></h3>
-	<% if @dress.dress_img.attached? %>
-<%= image_tag(@dress.dress_img) %>
-<%end %>
-	<p>
-		Size: <%= @dress.size[1..-2] %> <br/>
-		Color: <%= @dress.color %> <br/>
-		Price: Rs. <%= @dress.price %> <br/>
-		Description: <%= @dress.description %> <br/>
-		<%= link_to 'Back', dresses_path, class: "btn btn-primary" %>
-		<% if signed_in? %>
-		<%= link_to "Edit", edit_dress_path(@dress), class: "btn btn-secondary" %>
-		<%= link_to "Delete", dress_path(@dress), method: :delete,data: {confirm: "Are you sure"}, class: "btn btn-danger" %>
-		<% end %>
-	</p>
-</div>
+<div class="show-container">
+	<div class="left-column">
+		<% if @dress.dress_img.attached? %>
+			<%= image_tag(@dress.dress_img) %>
+		<%end %>
+	</div>
+	<div class="right-column">
+		<div class="product-title">
+			<h2> <%= @dress.name %></h2>
+		</div>
+		<div class="product-description">
+			<%= @dress.description %>
+		</div>
+		<div class="product-detail">
+			<div class="product-size">
+				<h4>Available Size</h4> <%= @dress.size[1..-2] %>
+			</div>
+			<div class="product-color">
+				<h4>Color </h4> <%= @dress.color %> 
+			</div>
+			<div class="product-price">
+				<h4>Price</h4> <%= @dress.price %>
+			</div>
+		</div>
+		<%= button_to 'Back', root_path,method: :get, class: "back-btn" %>
+	</div>
 </div>

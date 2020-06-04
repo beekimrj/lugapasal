@@ -10,7 +10,7 @@
 
 h2 {
 	color: #333;
-	text-align: center;
+	// text-align: center;
 }
 
 .product-item{
@@ -24,16 +24,17 @@ h2 {
 	background: #71b1f1;
 	position: relative;
 	display: flex;
-	justify-content: center;
+	// justify-content: flex-start;
 	align-items: center;
 
-	background-image: url(asset_path("banner.jpg"));
+	background-image: url(asset_path("banner.png"));
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
   .banner-text{
 	text-align: left;
+	margin-left: 25%;
 	color: white;
 	h4{
 		font-size: 2rem;
@@ -42,4 +43,250 @@ h2 {
 	}
 }
 
+/* Card Css*/
+.content{
+	margin-top: 60px;
+}
 
+.card-container{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	max-width: 300px;
+	min-width: 250px;
+	text-align: center;
+	font-family: arial;
+	margin-top: 60px;
+	display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-container:hover{
+	box-shadow: -4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+}
+.card-container img{
+	width: 100%
+}
+
+.card-price{
+	color: grey;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.card-body{
+	text-align: left;
+	margin-left: 20%;
+}
+
+button{
+	cursor: pointer;
+}
+
+.card-footer .see-more-btn{
+	border: none;
+	background-color: black;
+	width: 100%;
+	color: white;
+	font-size: 18px;
+	padding: 12px;
+	a{
+		color: white;
+		text-decoration: none;
+	}
+}
+.card-footer .edit-btn{
+	border: none;
+	background-color: grey;
+	width: 50%;
+	color: white;
+	font-size: 18px;
+	padding: 6px;
+	float:left;
+	a{
+		color: white;
+		text-decoration: none;
+	}
+}
+
+.card-footer .delete-btn{
+	border: none;
+	background-color: red;
+	width: 50%;
+	color: white;
+	font-size: 18px;
+	padding: 6px;
+	float:right;
+}
+
+
+/*.dress-form Design*/
+.row{
+	width: 100%;
+}
+.col-25{
+	float: left;
+  width: 25%;
+  // margin-top: 10px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  // margin-top: 10px;
+}
+.dress-form{
+	// margin-top: 100px;
+  padding: 20px;
+}
+
+.dress-form input[type='text'], .dress-form textarea, .dress-form input[type='number'] {
+	width: 90%;
+	padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+  font-size: 18px;
+}
+
+.dress-form input[type='checkbox']{
+	/*display: inline-block;*/
+	margin-left: 15px;
+}
+
+.dress-form label{
+	padding: 8px 10px 0 20px;
+  display: inline-block;
+  font-size: 22px;
+}
+.submit-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: left;
+  margin-top: 15px;
+}
+
+.back-btn{
+	background-color: grey;
+  color: black;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dress-form .back-btn{
+  float: right;
+  margin-top: 15px;
+}
+
+.submit-btn:hover {
+  background-color: #45a049;
+}
+
+input[type=submit]{
+	cursor: pointer;
+}
+
+.dress-form textarea{
+	height: 400px;
+}
+
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, .submit-btn, .dress-form .back-btn {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .card-container{
+  	max-width: 100%;
+  }
+}
+
+
+/*Search Form*/
+
+.search-form-container{
+	display: block;
+	box-shadow: 0 3px 10px -6px #ccc;
+	margin-left: 10px;
+	margin-top: 30px;
+}
+.search-form{
+	margin-left: 20px;
+	display: inline-block;
+	/*font-family: arial;*/
+}
+
+.search-form-input{
+	width: 20%;
+	padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+  font-size: 18px;
+  margin-right: 20px;
+}
+
+.search-form select,.search-form .search-submit-btn{
+	width: 100px;
+	margin: 0 10px;
+	border-radius: 4px;
+	box-sizing: border-box;
+	padding: 6px 12px;
+	background-color: white;
+	cursor: pointer;
+}
+
+.search-form .search-submit-btn{
+	background-color: #ccc;
+	border: none;
+	padding: 10px 15px;
+}
+
+/*product show design*/
+.show-container{
+	width: 95%;
+	margin: 0 auto;
+	display: flex;
+	align-content: center;
+}
+
+.show-container .back-btn{
+	margin-top: 20px;
+}
+.left-column{
+	width: 60%;
+	position: relative;
+	padding: 15px;
+}
+.right-column{
+	width: 40%;
+}
+
+.left-column img{
+	width: 95%;
+	left: 0;
+  top: 0;
+}
+
+.product-title{
+	text-transform: uppercase;
+  text-decoration: none;
+
+}
+
+.product-description{
+  font-size: 16px;
+  line-height: 20px; 
+}
+
+.product-detail{
+	display: flex;
+	width: 75%;
+	justify-content: space-around;
+}
